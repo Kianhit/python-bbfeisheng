@@ -10,7 +10,7 @@ list也拥有类似的操作方法 **pop(0)** 和 **insert(0, value)**, 但是�
 ```
 class collections.deque([iterable[, maxlen]])
 ```
-从iterable中拿去数据，从左到右初始化这些数据，通过自身 **append()** 方法添加数据，最终生成ddeque实例;
+从iterable中拿去数据，从左到右初始化这些数据，通过自身 **append()** 方法添加数据，最终生成deque实例;
 当iterable没有提供，即生成一个空deque;
 **maxlen** 代表dqeue元素最大长度。
 ```
