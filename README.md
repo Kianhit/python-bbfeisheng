@@ -1,5 +1,6 @@
-# Python步步飞升
-my learning note
+# Python步步飞升笔记
+My Python notes.
+不是系统的教程，想到什么了随时更新下。
 
 ## collections 
 - [Python步步飞升之collections.defaultdict](https://www.jianshu.com/p/27e164bdb516)
