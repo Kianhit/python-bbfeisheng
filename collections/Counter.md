@@ -53,8 +53,13 @@ c = Counter(cats=4, dogs=8) # 以关键字参数创建
 
 ## 5. Mark一些该类常用方法和特点
 
-### 5.1 Counter不会遇到*KeyError*异常
+### 5.1 Counter不会遇到“KeyError”异常
 ```
+>>> d = dict()
+>>> d['a']
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 'a'
 >>> c = Counter()
 >>> print(c['a'])
 0
