@@ -8,3 +8,4 @@
 - [Python步步飞升之collections.defaultdict](https://github.com/Kianhit/python-bbfeisheng/blob/master/collections/defaultdict.md)
 - [Python步步飞升之collections.namedtuple](https://github.com/Kianhit/python-bbfeisheng/blob/master/collections/namedtuple.md)
 - [Python步步飞升之collections.OrderedDict](https://github.com/Kianhit/python-bbfeisheng/blob/master/collections/OrderedDict.md) 
+- [Python步步飞升之collections.Counter](https://github.com/Kianhit/python-bbfeisheng/blob/master/collections/Counter.md)
