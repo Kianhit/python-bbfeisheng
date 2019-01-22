@@ -5,6 +5,6 @@
 - 希望能帮助初学Python的朋友，同时供自己查询温习所用。
 
 ## collections 
-- [Python步步飞升之collections.defaultdict](https://www.jianshu.com/p/27e164bdb516)
-- [Python步步飞升之collections.namedtuple](https://www.jianshu.com/p/bca678599a9d)
-- [Python步步飞升之collections.OrderedDict](https://www.jianshu.com/p/9760d7383b48)
+- [Python步步飞升之collections.defaultdict](https://github.com/Kianhit/python-bbfeisheng/blob/master/collections/defaultdict.md)
+- [Python步步飞升之collections.namedtuple](https://github.com/Kianhit/python-bbfeisheng/blob/master/collections/namedtuple.md)
+- [Python步步飞升之collections.OrderedDict](https://github.com/Kianhit/python-bbfeisheng/blob/master/collections/OrderedDict.md) 

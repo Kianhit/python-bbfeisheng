@@ -1,13 +1,15 @@
-# 1. 前言
+# Python步步飞升之collections.namedtuple
+
+## 1. 前言
 Python内置四种基本container：list, dict, set, tuple，collections模块为其补充。namedtuple为collections中一个容器。一言以蔽之，是为有属性名字的tuple.
 
-# 2. 简单说明
+## 2. 简单说明
 ```
 collections.namedtuple(typename, field_names, verbose=False, rename=False)
 ```
-生成一个新的名为typename的tuple子类，属性名称由field_names指定。详细介绍参见[Python官方文档](https://docs.python.org/3.5/library/collections.html#collections.namedtuple)。
+生成一个新的名为typename的tuple子类，属性名称由field_names指定。详细介绍参见[Python官方文档](https://docs.python.org/3.5/library/collections.html##collections.namedtuple)。
 
-# 3.  简单例子
+## 3.  简单例子
 ```
 from collections import namedtuple
 
@@ -25,7 +27,7 @@ Point(x=1, y=2)
 ```
 本身tuple作为一个只读list，只能通过位置进行访问，如p[0]。使用namedtuple之后可以采用属性名称的方式进行访问，增大了可读性，带来了方便。
 
-# 4. Mark一些该类常用方法和属性
+## 4. Mark一些该类常用方法和属性
 -  **_make(iterable)**
   从sequence或iterable中生成一个新的实例
   ```
@@ -71,7 +73,7 @@ Point(x=1, y=2)
   ('x', 'y')
 ```
 
-# 5. 使用场景：从csv文件中读取数据
+## 5. 使用场景：从csv文件中读取数据
 employee.csv内容如下
 ```
 Kian,18,CEO,R&D Dept
@@ -93,5 +95,5 @@ for emp in map(EmployeeRecord._make, csv.reader(open('C:\\Users\\kian\\Documents
 Kian CEO
 Danna CFO
 ```
-#6. 结语
+## 6. 结语
 如有疑问，欢迎留言共同探讨。
