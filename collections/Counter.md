@@ -22,7 +22,7 @@ print(counter)
 ```
 defaultdict(<class 'int'>, {'red': 2, 'blue': 3, 'green': 1})
 ```
-这里用到了以前讲述到的(defaultdict)[https://github.com/Kianhit/python-bbfeisheng/blob/master/collections/defaultdict.md]。
+这里用到了以前讲述到的[defaultdict](https://github.com/Kianhit/python-bbfeisheng/blob/master/collections/defaultdict.md)。
 
 ## 3. Life is short, you need Python
 现在有了collections.Counter工具，我们可以更加便利的实现这点
