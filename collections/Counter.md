@@ -91,7 +91,7 @@ Counter({'a': 2})
 >>> -c
 Counter({'b': 4})
 ```
-所以刚好可以使用*+c*用来去除Counter中非正数值
+所以刚好可以使用 **+c** 用来去除Counter中非正数值
 
 ### 5.4 elements()
 以任意顺序返回Counter中key，个数为value值的迭代器。
