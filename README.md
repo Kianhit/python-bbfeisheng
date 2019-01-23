@@ -10,3 +10,4 @@
 - [Python步步飞升之collections.OrderedDict](https://github.com/Kianhit/python-bbfeisheng/blob/master/collections/OrderedDict.md) 
 - [Python步步飞升之collections.Counter](https://github.com/Kianhit/python-bbfeisheng/blob/master/collections/Counter.md)
 - [Python步步飞升之collections.deque](https://github.com/Kianhit/python-bbfeisheng/blob/master/collections/deque.md)
+- [Python步步飞升之collections.deque](https://github.com/Kianhit/python-bbfeisheng/blob/master/collections/ChainMap.md)
