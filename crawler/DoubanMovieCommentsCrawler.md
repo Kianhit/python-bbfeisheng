@@ -74,7 +74,7 @@ https://movie.douban.com/subject/30331149/comments?start=480&limit=20&sort=new_s
 
 ### 3.3 cookie模拟登录
 最简单的方式就是在网站上登录之后，Chrome中“F12”快捷键点开调试工具，查看网络随意选取一个请求，记住header中cookie信息，爬取数据时添加到请求header。
-![获取cookie](https://github.com/Kianhit/python-bbfeisheng/raw/master/crawler/result.png)
+![获取cookie](https://github.com/Kianhit/python-bbfeisheng/raw/master/crawler/login_get_cookie.png)
 用requests发送请求时，带上cookie就好
 ```
 self._cookies = {'cookie': cookie}
@@ -82,7 +82,9 @@ urlInfo = requests.get(url, cookies=self._cookies, headers=self._headers)
 ```
 
 ### 3.4 分析评论页源码获取指定信息
-查看一个评论页面的源代码，发现
+查看一个评论页面的源代码
+![analyze html source](https://github.com/Kianhit/python-bbfeisheng/raw/master/crawler/analyze_commentitem_source.png)
+可见，
 - 评论放在一个div中，id="comments"
 - 每个评论都在一个div中，class="comment-item"
 - 评论人名称在一个链接中，当href有值且链接中包含“people”元素，存在用户已注销情况
@@ -130,7 +132,7 @@ urlInfo = requests.get(url, cookies=self._cookies, headers=self._headers)
         return pages
 ```
 
-### 4. 获取到的评论数据保存在csv中
+## 4. 获取到的评论数据保存在csv中
 使用csv模块可以很方便的保存文件
 ```
         fileName = self._movieName + '.csv'
@@ -141,4 +143,50 @@ urlInfo = requests.get(url, cookies=self._cookies, headers=self._headers)
             [writer.writerow(comment) for comment in self._comments] ## save comments line by line
 ```
 
-### 5. 分词评论保存
+## 5. 评论内容分词
+下载“中文停用词表.txt”，也可以在网上搜索相应资源
+使用jieba分词取最热100词，并保存结果在文件中
+```
+    def fenci(self):
+        print('开始分词...')
+        fenciFileName = os.path.join(
+            sys.path[0], self._movieName + '_分词结果.csv')
+        CommentRecord = namedtuple(
+            'CommentRecord', ['user', 'date', 'eval', 'star', 'votes', 'content'])
+
+        analyse.set_stop_words(os.path.join(sys.path[0], '中文停用词表.txt'))
+        content = []
+        csvName = os.path.join(sys.path[0], self._movieName + '.csv')
+        for emp in map(CommentRecord._make, csv.reader(open(csvName, mode='r', encoding='utf-8-sig'))):
+            content.append(emp.content)
+
+        tags = analyse.extract_tags(
+            ' '.join(content), topK=100, withWeight=True)
+        with open(fenciFileName, 'w', encoding='utf-8-sig', newline='') as csvfile:
+            writer = csv.writer(csvfile)
+            [writer.writerow(item[0] + '\t' + str(int(item[1] * 1000)))
+             for item in tags]
+
+        print('分词结束，保存结果在"%s"中...' % fenciFileName)
+```
+
+## 6. 用在线可视化工具wordart生成热词图片
+网站地址在此[wordart](https://wordart.com/create)
+
+### 6.1 导入生成的词汇
+打开“白蛇：缘起_分词结果.csv”，复制两列所有数据。
+如图，在网站中一次点击“WORDS”，“Import”，选中“CSV Fromat”选项，粘贴到文本框中，点击“Import Words”按钮。
+![导入词汇](https://github.com/Kianhit/python-bbfeisheng/raw/master/crawler/wordart_import_words.png)
+
+### 6.2 选择SHAPES
+这里就是选择形状图用来做背景，也可以自行上传图像文件
+
+### 6.3 选择FONTS
+网站本身不支持中文，需要上传一个中文字体，不然显示出来都是框框。这里我上传了[NotoSansMonoCJKsc-Regular.otf](https://github.com/Kianhit/python-bbfeisheng/raw/master/crawler/NotoSansMonoCJKsc-Regular.otf)用以显示。然后点击“Visualize”按钮即可生成词图。
+![导入字体](https://github.com/Kianhit/python-bbfeisheng/raw/master/crawler/wordart_import_choose_font_visu.png)
+
+### 6.4 生成的词图
+![生成的词图](https://github.com/Kianhit/python-bbfeisheng/raw/master/crawler/白蛇：缘起.png)
+
+### 7. 结语
+如有疑问，欢迎留言共同探讨。

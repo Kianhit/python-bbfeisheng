@@ -13,6 +13,10 @@ import random
 import csv
 import argparse
 from collections import ChainMap
+from jieba import analyse
+import os
+import sys
+from collections import namedtuple
 
 '''
 从豆瓣电影中抓取指定电影短评，然后保存于csv文件中
@@ -82,27 +86,50 @@ class DoubanMovieCommentsCrawler(object):
                 print('抓取结束...')
                 break
             else:
-                time.sleep(round(random.uniform(5.0, 5.5), 2)) ## 随机暂停5-5.5s时间再发起请求
+                # 随机暂停5-5.5s时间再发起请求
+                time.sleep(round(random.uniform(5.0, 5.5), 2))
                 each = int(nextPage[-1])
         self.save2csv()
+        self.fenci()
 
     def save2csv(self):
-        fileName = self._movieName + '.csv'
-        print('保存到csv文件(%s)中...' % (fileName,))
-        with open(fileName, 'w', encoding='utf-8-sig', newline='') as csvfile:
+        self._fileName = self._movieName + '.csv'
+        print('保存到csv文件(%s)中...' % (self._fileName,))
+        with open(os.path.join(sys.path[0], self._fileName), 'w', encoding='utf-8-sig', newline='') as csvfile:
             fieldnames = ['user', 'date', 'eval', 'star', 'votes', 'content']
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
             [writer.writerow(comment) for comment in self._comments]
         print('保存完毕...')
 
+    def fenci(self):
+        print('开始分词...')
+        fenciFileName = os.path.join(
+            sys.path[0], self._movieName + '_分词结果.csv')
+        CommentRecord = namedtuple(
+            'CommentRecord', ['user', 'date', 'eval', 'star', 'votes', 'content'])
+
+        analyse.set_stop_words(os.path.join(sys.path[0], '中文停用词表.txt'))
+        content = []
+        csvName = os.path.join(sys.path[0], self._movieName + '.csv')
+        for emp in map(CommentRecord._make, csv.reader(open(csvName, mode='r', encoding='utf-8-sig'))):
+            content.append(emp.content)
+        tags = analyse.extract_tags(
+            ' '.join(content), topK=100, withWeight=True)
+        with open(fenciFileName, 'w', encoding='utf-8-sig', newline='') as csvfile:
+            writer = csv.writer(csvfile)
+            [writer.writerow([item[0], str(int(item[1] * 1000))])
+             for item in tags]
+
+        print('分词结束，保存结果在"%s"中...' % fenciFileName)
+
 
 if __name__ == '__main__':
 
-    movieId=30331149
+    movieId = 30331149
 
     # login douban.com
-    cookie='__yadk_uid=HMbnanDUzuMuyxxj6S1fV6IMakVNThOz; \
+    cookie = '__yadk_uid=HMbnanDUzuMuyxxj6S1fV6IMakVNThOz; \
         _vwo_uuid_v2=D1BEF4F661D8BBCF8BFB708C32CF59C8E|520c9e783d2c99bf3e33694e3146d731; \
         __utmv=30149280.236; ll="118318"; douban-fav-remind=1; \
         __utmz=30149280.1544958198.34.14.utmcsr=baidu|utmccn=(organic)|utmcmd=organic; \
@@ -115,13 +142,13 @@ if __name__ == '__main__':
         __utmb=223695111.0.10.1548313798; __utmc=223695111; dbcl2="2360219:e9Jnnva+QLk";\
          ck=uUEb; push_doumail_num=0; push_noty_num=0; _pk_id.100001.4cf6=8cba87048d36e6b1.1517821407.29.1548313934.1544958651.'
 
-    defaults={'id': movieId, 'cookie': cookie}
-    parser=argparse.ArgumentParser()
+    defaults = {'id': movieId, 'cookie': cookie}
+    parser = argparse.ArgumentParser()
     parser.add_argument('-i', '--id')
     parser.add_argument('-c', '--cookie')
-    namespace=parser.parse_args()
-    command_line_args={k: v for k, v in vars(namespace).items() if v}
+    namespace = parser.parse_args()
+    command_line_args = {k: v for k, v in vars(namespace).items() if v}
 
-    combined=ChainMap(command_line_args, defaults)
+    combined = ChainMap(command_line_args, defaults)
 
     DoubanMovieCommentsCrawler(combined['id'], combined['cookie']).start()
