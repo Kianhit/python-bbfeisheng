@@ -32,6 +32,7 @@ class DoubanMovieCommentsCrawler(object):
 
     def crawlOnePage(self, html):
         soup = BeautifulSoup(html, 'lxml')
+        # 获取电影名称
         if self._movieName == '':
             self._movieName = soup.select(
                 '.movie-summary')[0].find_all('img')[0]['title']
@@ -67,7 +68,7 @@ class DoubanMovieCommentsCrawler(object):
 
     def start(self):
         print('开始抓取数据...')
-        each = 1
+        each = 0
         while 1:
             url = 'https://movie.douban.com/subject/' + \
                 self._movieId+'/comments?start=' + str(each) + \
@@ -76,32 +77,32 @@ class DoubanMovieCommentsCrawler(object):
                 url, cookies=self._cookies, headers=self._headers)
             print("从URL(%s)抓取评论中..." % urlInfo.url,)
             nextPage = self.crawlOnePage(urlInfo.text)
-            time.sleep(round(random.uniform(5.0, 5.5), 2))
             # 没有下一页，最后一个元素为前页
             if int(nextPage[-1]) < each:
                 print('抓取结束...')
                 break
             else:
+                time.sleep(round(random.uniform(5.0, 5.5), 2)) ## 随机暂停5-5.5s时间再发起请求
                 each = int(nextPage[-1])
         self.save2csv()
 
     def save2csv(self):
         fileName = self._movieName + '.csv'
         print('保存到csv文件(%s)中...' % (fileName,))
-        with open(fileName, 'w', encoding='utf-8-sig') as csvfile:
-            writer = csv.writer(csvfile)
-            writer.writerow(
-                ['user', 'date', 'content',  'eval',  'star', 'votes'])
-            [writer.writerow(comment.values()) for comment in self._comments]
+        with open(fileName, 'w', encoding='utf-8-sig', newline='') as csvfile:
+            fieldnames = ['user', 'date', 'eval', 'star', 'votes', 'content']
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writer.writeheader()
+            [writer.writerow(comment) for comment in self._comments]
         print('保存完毕...')
 
 
 if __name__ == '__main__':
 
-    movieId = 1858802
+    movieId=30331149
 
     # login douban.com
-    cookie = '__yadk_uid=HMbnanDUzuMuyxxj6S1fV6IMakVNThOz; \
+    cookie='__yadk_uid=HMbnanDUzuMuyxxj6S1fV6IMakVNThOz; \
         _vwo_uuid_v2=D1BEF4F661D8BBCF8BFB708C32CF59C8E|520c9e783d2c99bf3e33694e3146d731; \
         __utmv=30149280.236; ll="118318"; douban-fav-remind=1; \
         __utmz=30149280.1544958198.34.14.utmcsr=baidu|utmccn=(organic)|utmcmd=organic; \
@@ -114,13 +115,13 @@ if __name__ == '__main__':
         __utmb=223695111.0.10.1548313798; __utmc=223695111; dbcl2="2360219:e9Jnnva+QLk";\
          ck=uUEb; push_doumail_num=0; push_noty_num=0; _pk_id.100001.4cf6=8cba87048d36e6b1.1517821407.29.1548313934.1544958651.'
 
-    defaults = {'id': movieId, 'cookie': cookie}
-    parser = argparse.ArgumentParser()
+    defaults={'id': movieId, 'cookie': cookie}
+    parser=argparse.ArgumentParser()
     parser.add_argument('-i', '--id')
     parser.add_argument('-c', '--cookie')
-    namespace = parser.parse_args()
-    command_line_args = {k: v for k, v in vars(namespace).items() if v}
+    namespace=parser.parse_args()
+    command_line_args={k: v for k, v in vars(namespace).items() if v}
 
-    combined = ChainMap(command_line_args, defaults)
+    combined=ChainMap(command_line_args, defaults)
 
     DoubanMovieCommentsCrawler(combined['id'], combined['cookie']).start()
