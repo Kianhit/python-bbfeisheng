@@ -83,7 +83,8 @@ Python 2.7.15
 ```
 重启VS Code，然后可以看到左下角显示当前Python执行环境，同时点击之后可以随意切换。
 ![左下角查看当前Python执行环境](https://github.com/Kianhit/python-bbfeisheng/raw/master/envmanage/virtualenv_vscode_1.png)
-这样，我右键选择“在当前终端执行Python文件”命令时，终端中显示的Python.exe已切换为虚拟环境
+
+之后，我右键选择“在当前终端执行Python文件”命令时，终端中显示的Python.exe已切换为虚拟环境
 ```
 PS C:\Users\kigao\Documents\code\python-bbfeisheng> & "D:/Program Files/PythonVirtualEnvs/proj1/Scripts/python.exe" c:/Users/kigao/Documents/code/python-bbfeisheng/collections/note_ChainMap.py
 ```
