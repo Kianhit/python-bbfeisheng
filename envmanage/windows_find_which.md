@@ -1,4 +1,4 @@
-# Windows中类似grep和which命令
+# Windows中类似Linux的grep和which命令替代者findstr和where
 
 ## 1. 前言
 因为在Linux环境中工作多年，早已习惯常用的命令。现如今切换到Windows下工作，诸多不便，其中which和grep就是其中之二，希望能帮助有同样疑惑的朋友。
