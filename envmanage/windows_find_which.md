@@ -1,4 +1,4 @@
-# Windows中类似Linux的grep和which命令替代者findstr和where
+# 篇外：Windows中类似Linux的grep和which命令替代者findstr和where
 
 ## 1. 前言
 因为在Linux环境中工作多年，早已习惯常用的命令。现如今切换到Windows下工作，诸多不便，其中which和grep就是其中之二，希望能帮助有同样疑惑的朋友。
@@ -10,7 +10,7 @@ grep使用实在太频繁了，比如查询当前正在运行的程序
 ps -ef | grep java
 ```
 
-windows提供find/findstr类似命令，其中findstr要比find功能更多一些，可以/?查看帮助。
+Windows提供find/findstr类似命令，其中findstr要比find功能更多一些，可以/?查看帮助。
 ```
 ## CMD
 C:\Users\kigao>find /N "SELECT" .\xiaomi.sql
@@ -38,7 +38,7 @@ virtualenv             16.3.0
 
 ## 3. which替代者where/Get-Command
 
-因为电脑很多环境，命令也有多个版本，很多时候需要查看一下当前默认命令路径，Linux中使用which，windows中也有where来替代。
+因为电脑很多环境，命令也有多个版本，很多时候需要查看一下当前默认命令路径，Linux中使用which，Windows中也有where来替代。
 ```
 #CMD
 C:\Users\kigao>where cmd
