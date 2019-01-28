@@ -5,6 +5,7 @@
 - 希望能帮助初学Python的朋友，同时供自己查询温习所用。
 
 ## Env环境管理
+- [Python步步飞升之virtualenv](https://github.com/Kianhit/python-bbfeisheng/blob/master/envmanage/virtualenv.md)
 - [篇外：Windows中类似Linux的grep和which命令替代者findstr和where](https://github.com/Kianhit/python-bbfeisheng/blob/master/envmanage/windows_find_which.md)
 
 ## collections模块 
