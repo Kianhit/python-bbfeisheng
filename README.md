@@ -8,6 +8,8 @@
 - [Python步步飞升之virtualenv](https://github.com/Kianhit/python-bbfeisheng/blob/master/envmanage/virtualenv.md)
 - [篇外：Windows中类似Linux的grep和which命令替代者findstr和where](https://github.com/Kianhit/python-bbfeisheng/blob/master/envmanage/windows_find_which.md)
 
+## 基础知识
+- [Python步步飞升之Python高级特征](https://github.com/Kianhit/python-bbfeisheng/blob/master/basic/advanced_features.md)
 ## collections模块 
 - [Python步步飞升之collections.defaultdict](https://github.com/Kianhit/python-bbfeisheng/blob/master/collections/defaultdict.md)
 - [Python步步飞升之collections.namedtuple](https://github.com/Kianhit/python-bbfeisheng/blob/master/collections/namedtuple.md)

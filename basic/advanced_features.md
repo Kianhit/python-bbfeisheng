@@ -1,4 +1,4 @@
-# Python步步飞升之高级特征
+# Python步步飞升之Python高级特征
 
 ## 1. 前言
 Python有句著名的话，叫做"Life is short, you need Python"，人生苦短啊，代码越少，效率越高，这也是我喜欢Python的原因。这篇文章学习一下Python语言的高级特征: Slicing(切片)，Iterable(迭代)，List Comprehensions(列表生成式)，Generator(生成器)和Iterator(迭代器)。 
@@ -156,8 +156,34 @@ newL = ['ab', 'ac', 'ba', 'bc', 'ca', 'cb']
 ## 5. Generator(生成器)
 ### 5.1 定义
 生成器和list类似，但只有在需要返回下一个数据时它才会计算，而不用如list一样有容量限制，节省空间。
-有常见两种方法创建一个生成器：把一个列表生成式的[]改成()和通过用yield替换函数中return实现
-### 5.2 把一个列表生成式的[]改成()
+### 5.2 生成器返回数据
+- 通过next()函数返回元素
+```
+>>> next(g)
+'ab'
+>>> next(g)
+'ac'
+```
+当最后一个元素返回后继续调用会返回StopIteration错误
+```
+>>> next(g)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+StopIteration
+```
+- 生成器是Iterable，可以用for来循环元素，这样可以杜绝StopIteration错误
+```
+>>> for x in g:
+...     print(x)
+...
+ba
+bc
+ca
+cb
+```
+
+### 5.3 两种方法创建一个生成器
+- 把一个列表生成式的[]改成()
 例如
 ```
 >>> l = ['a','b','c']
@@ -168,24 +194,7 @@ newL = ['ab', 'ac', 'ba', 'bc', 'ca', 'cb']
 >>> g
 <generator object <genexpr> at 0x03134130>
 ```
-生成器通过next()函数返回元素
-```
->>> next(g)
-'ab'
->>> next(g)
-'ac'
-```
-生成器是Iterable，可以用for来循环元素
-```
->>> for x in g:
-...     print(x)
-...
-ba
-bc
-ca
-cb
-```
-### 5.3 通过用yield替换函数中return实现
+- 5.3 通过用yield替换函数中return实现
 变成generator的函数，在每次调用next()的时候执行，遇到yield语句返回，再次执行时从上次返回的yield语句处继续执行。
 ```
 >>> def odd():
