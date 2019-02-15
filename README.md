@@ -1,5 +1,5 @@
 # Python步步飞升笔记
-- My Python notes.
+- My Python 3 notes.
 - 不是系统的教程，想到什么了随时更新下。
 - 本身这个笔记是更新在[我的简书](https://www.jianshu.com/u/11e1049a308f)上的，后面会同步更新。
 - 希望能帮助初学Python的朋友，同时供自己查询温习所用。
