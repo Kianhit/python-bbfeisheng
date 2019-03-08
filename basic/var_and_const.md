@@ -40,7 +40,7 @@ x = 'abc'
 >>> id(y)
 10281600
 ```
-**id()**函数查看变量内容地址，可以看到变量x和变量y是指向同一个地址。
+**id()** 函数查看变量内容地址，可以看到变量x和变量y是指向同一个地址。
 
 ## is和==
 这里python中有两个操作符
@@ -100,19 +100,19 @@ Python语言编码没有具体的风格，常见两种风格规范：
 - 对类名使用大写字母开头的单词(如CapWords, 即Pascal风格), 但是模块名应该用小写加下划线的方式(如lower_with_under.py). 尽管已经有很多现存模块使用类似于CapWords.py这样的命名, 但现在已经不鼓励这样做, 因为如果模块名碰巧和类名一致, 这会让人困扰.
 
 Python之父Guido推荐的规范
-Type|    Public | Internal
----|:--:|---:
-Modules| lower_with_under |   _lower_with_under
-Packages|    lower_with_under     
-Classes| CapWords  |  _CapWords
-Exceptions|  CapWords   |  
-Functions|   lower_with_under()  |_lower_with_under()
-Global/Class Constants  |CAPS_WITH_UNDER |_CAPS_WITH_UNDER
-Global/Class Variables  |lower_with_under  |  _lower_with_under
-Instance Variables  |lower_with_under  |  _lower_with_under (protected) or __lower_with_under (private)
-Method Names   | lower_with_under() | _lower_with_under() (protected) or __lower_with_under() (private)
-Function/Method Parameters | lower_with_under     
-Local Variables |lower_with_under    
+|Type|    Public | Internal |
+| ---------- | :-----------:  | :-----------: |
+|Modules| lower_with_under |   _lower_with_under |
+|Packages|    lower_with_under     |
+|Classes| CapWords  |  _CapWords |
+|Exceptions|  CapWords   |  
+|Functions|   lower_with_under()  |_lower_with_under() |
+|Global/Class Constants  |CAPS_WITH_UNDER |_CAPS_WITH_UNDER |
+|Global/Class Variables  |lower_with_under  |  _lower_with_under |
+|Instance Variables  |lower_with_under  |  _lower_with_under (protected) or __lower_with_under (private) |
+|Method Names   | lower_with_under() | _lower_with_under() (protected) or __lower_with_under() (private) |
+|Function/Method Parameters | lower_with_under |     
+|Local Variables |lower_with_under |    
 
 ## Python除法
 - "/"除法计算结果是浮点数，是精确的除法
