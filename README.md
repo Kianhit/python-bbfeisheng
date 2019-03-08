@@ -5,20 +5,20 @@
 - 希望能帮助初学Python的朋友，同时供自己查询温习所用。
 
 ## Env环境管理
-- [Python步步飞升之virtualenv](https://github.com/Kianhit/python-bbfeisheng/blob/master/envmanage/virtualenv.md)
-- [篇外：Windows中类似Linux的grep和which命令替代者findstr和where](https://github.com/Kianhit/python-bbfeisheng/blob/master/envmanage/windows_find_which.md)
+- [Python步步飞升之virtualenv](envmanage/virtualenv.md)
+- [篇外：Windows中类似Linux的grep和which命令替代者findstr和where](envmanage/windows_find_which.md)
 
 ## 基础知识
-- [Python步步飞升之变量和常量](https://github.com/Kianhit/python-bbfeisheng/blob/master/basic/advanced_features.md)
-- [Python步步飞升之Python高级特征](basic/var_and_const.md)
+- [Python步步飞升之变量和常量](basic/var_and_const.md)
+- [Python步步飞升之Python高级特征](basic/advanced_features.md)
 
 ## collections模块 
-- [Python步步飞升之collections.defaultdict](https://github.com/Kianhit/python-bbfeisheng/blob/master/collections/defaultdict.md)
-- [Python步步飞升之collections.namedtuple](https://github.com/Kianhit/python-bbfeisheng/blob/master/collections/namedtuple.md)
-- [Python步步飞升之collections.OrderedDict](https://github.com/Kianhit/python-bbfeisheng/blob/master/collections/OrderedDict.md) 
-- [Python步步飞升之collections.Counter](https://github.com/Kianhit/python-bbfeisheng/blob/master/collections/Counter.md)
-- [Python步步飞升之collections.deque](https://github.com/Kianhit/python-bbfeisheng/blob/master/collections/deque.md)
-- [Python步步飞升之collections.ChainMap](https://github.com/Kianhit/python-bbfeisheng/blob/master/collections/ChainMap.md)
+- [Python步步飞升之collections.defaultdict](collections/defaultdict.md)
+- [Python步步飞升之collections.namedtuple](collections/namedtuple.md)
+- [Python步步飞升之collections.OrderedDict](collections/OrderedDict.md) 
+- [Python步步飞升之collections.Counter](collections/Counter.md)
+- [Python步步飞升之collections.deque](collections/deque.md)
+- [Python步步飞升之collections.ChainMap](collections/ChainMap.md)
 
 ## crawler爬虫相关
-- [Python步步飞升之爬取豆瓣电影短评告诉你《白蛇：缘起》为啥这么热](https://github.com/Kianhit/python-bbfeisheng/blob/master/crawler/DoubanMovieCommentsCrawler.md)
+- [Python步步飞升之爬取豆瓣电影短评告诉你《白蛇：缘起》为啥这么热](crawler/DoubanMovieCommentsCrawler.md)
