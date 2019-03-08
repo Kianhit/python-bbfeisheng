@@ -100,6 +100,7 @@ Python语言编码没有具体的风格，常见两种风格规范：
 - 对类名使用大写字母开头的单词(如CapWords, 即Pascal风格), 但是模块名应该用小写加下划线的方式(如lower_with_under.py). 尽管已经有很多现存模块使用类似于CapWords.py这样的命名, 但现在已经不鼓励这样做, 因为如果模块名碰巧和类名一致, 这会让人困扰.
 
 Python之父Guido推荐的规范
+
 |Type|    Public | Internal |
 | ---------- | :-----------:  | :-----------: |
 |Modules| lower_with_under |   _lower_with_under |
@@ -113,6 +114,10 @@ Python之父Guido推荐的规范
 |Method Names   | lower_with_under() | _lower_with_under() (protected) or __lower_with_under() (private) |
 |Function/Method Parameters | lower_with_under |     
 |Local Variables |lower_with_under |    
+
+| 表格      | 第一列     | 第二列     |
+| ---------- | :-----------:  | :-----------: |
+| 第一行     | 第一列     | 第二列     |
 
 ## Python除法
 - "/"除法计算结果是浮点数，是精确的除法
