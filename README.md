@@ -10,6 +10,7 @@
 
 ## 基础知识
 - [Python步步飞升之变量和常量](basic/var_and_const.md)
+- [Python步步飞升之random伪随机数](basic/random.md)
 - [Python步步飞升之Python高级特征](basic/advanced_features.md)
 
 ## collections模块 
