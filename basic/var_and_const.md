@@ -115,10 +115,6 @@ Python之父Guido推荐的规范
 |Function/Method Parameters | lower_with_under |     
 |Local Variables |lower_with_under |    
 
-| 表格      | 第一列     | 第二列     |
-| ---------- | :-----------:  | :-----------: |
-| 第一行     | 第一列     | 第二列     |
-
 ## Python除法
 - "/"除法计算结果是浮点数，是精确的除法
 ```
