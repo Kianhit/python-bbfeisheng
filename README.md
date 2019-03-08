@@ -9,7 +9,9 @@
 - [篇外：Windows中类似Linux的grep和which命令替代者findstr和where](https://github.com/Kianhit/python-bbfeisheng/blob/master/envmanage/windows_find_which.md)
 
 ## 基础知识
-- [Python步步飞升之Python高级特征](https://github.com/Kianhit/python-bbfeisheng/blob/master/basic/advanced_features.md)
+- [Python步步飞升之变量和常量](https://github.com/Kianhit/python-bbfeisheng/blob/master/basic/advanced_features.md)
+- [Python步步飞升之Python高级特征](basic/var_and_const.md)
+
 ## collections模块 
 - [Python步步飞升之collections.defaultdict](https://github.com/Kianhit/python-bbfeisheng/blob/master/collections/defaultdict.md)
 - [Python步步飞升之collections.namedtuple](https://github.com/Kianhit/python-bbfeisheng/blob/master/collections/namedtuple.md)
