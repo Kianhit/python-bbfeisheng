@@ -1,4 +1,4 @@
-current	next	wind	temp	tianqi	紫外线指数	旅游指数	穿衣指数	晾晒指数	舒适度指数	晨练指数
+WEATHER_DATE	next	wind	temp	WEATHER_CONDITION	UV_INDEX	TRIP_INDEX	DRESS_INDEX	DRY_INDEX	COMFORT_INDEX	EXERCISE_INDEX
 20170101	20170102	西南风 2级	"['7℃', '1℃']"	霾	很弱	不适宜	较冷	不适宜	较冷	不宜
 20170102	20170103	东南风 1级	"['8℃', '1℃']"	霾	很弱	适宜	较冷	较适宜	较冷	适宜
 20170103	20170104	东北风 1级	"['8℃', '0℃']"	霾	很弱	适宜	较冷	较不宜	较冷	较适宜

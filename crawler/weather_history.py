@@ -82,7 +82,7 @@ class TianqiHistoryCrawler(object):
             if ('next' in comment):
                 if(comment['next'] == self._end):
                     break
-                time.sleep(round(random.uniform(3.0, 3.5), 2))
+                time.sleep(round(random.uniform(2.0, 2.5), 2))
                 each = comment['next']
             else:
                 break
@@ -90,7 +90,7 @@ class TianqiHistoryCrawler(object):
         # self.fenci()
 
     def save2csv(self):
-        self._fileName = 'weather_history_' + self._city + '.csv'
+        self._fileName = 'weather_history_2_' + self._city + '.csv'
         print('保存到csv文件(%s)中...' % (self._fileName,))
         with open(os.path.join(sys.path[0], self._fileName), 'w', encoding='utf-8-sig', newline='') as csvfile:
             fieldnames = ['current', 'next', 'wind', 'temp', 'tianqi',
@@ -124,7 +124,7 @@ class TianqiHistoryCrawler(object):
 
 if __name__ == '__main__':
 
-    defaults = {'start': '20170101', 'end': '20190501', 'city': 'xian'}
+    defaults = {'start': '20190501', 'end': '20190520', 'city': 'xian'}
     parser = argparse.ArgumentParser()
     parser.add_argument('-c', '--city')
     parser.add_argument('-s', '--start')
